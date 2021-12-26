@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "@snowpack/plugin-svelte": "^3.7.0",
+    "@types/snowpack-env": "^2.3.4",
+    "snowpack": "^3.8.8"
+  },
+  "dependencies": {
+    "svelte": "^3.44.3"
+  },
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build"
+  }
+}
