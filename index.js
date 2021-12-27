@@ -64,8 +64,9 @@ nextButton.onclick = () => {
 }
 
 function updateDisableds() {
-  nextButton.disabled = vols[step] > 0
-  plusButton.disabled = vols[step] === volStep || !canChange
-  minusButton.disabled = vols[step] < 1 || !canChange
+  const volume = vols[step]
+  nextButton.disabled = volume === 0
+  plusButton.disabled = volume === volStep || !canChange
+  minusButton.disabled = volume === 0 || !canChange
 }
 updateDisableds()
