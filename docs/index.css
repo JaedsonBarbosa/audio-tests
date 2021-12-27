@@ -1,0 +1,36 @@
+main {
+  border: green 1px solid;
+  width: min(300px, 70vw);
+  padding: 2rem;
+  display: block;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+button {
+  height: 2rem;
+}
+
+.relative {
+  position: relative;
+}
+
+img {
+  width: 50%;
+}
+
+.relative div {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.relative div button {
+  width: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.full-width {
+  width: 100%;
+}
