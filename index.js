@@ -21,7 +21,6 @@ const freqs = [1000, 1500, 2000, 3000, 4000, 6000, 8000, 1000, 750, 500]
 /** @type {number[]} */
 const vols = [...new Array(freqs.length * 2)].fill(0)
 let step = 0,
-  played = false,
   canChange = true
 
 function play() {
@@ -31,7 +30,6 @@ function play() {
   const max = vols[step] / volStep
   const volCurve = new Float32Array(volWave.map((v) => v * max))
   gainNode.gain.setValueCurveAtTime(volCurve, 0, toneDuration)
-  played = true
   updateDisableds()
   setTimeout(() => {
     canChange = true
@@ -56,7 +54,6 @@ plusButton.onclick = () => {
 /** @type {HTMLButtonElement} */
 const nextButton = document.querySelector('#next')
 nextButton.onclick = () => {
-  played = false
   if (step++ === freqs.length - 1) {
     document.querySelector('#ear').innerHTML = 'Left'
     panner.pan.value = -1
@@ -67,7 +64,7 @@ nextButton.onclick = () => {
 }
 
 function updateDisableds() {
-  nextButton.disabled = !played
+  nextButton.disabled = vols[step] > 0
   plusButton.disabled = vols[step] === volStep || !canChange
   minusButton.disabled = vols[step] < 1 || !canChange
 }
